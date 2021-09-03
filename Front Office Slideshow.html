@@ -1,0 +1,24 @@
+<!-- Front Office Slideshow -->
+<script type="text/javascript">
+    if (window.location.href === 'http://jillhimlie.withwre.com/listings/my-office-s-listings'){
+        $(document).ready(function() {
+            setInterval(function(){window.location.reload()}, 86400000);
+            $('#listingSlideModal').off('shown');
+            $('#listingSlideModal').on('shown.bs.modal', function (e) {
+                var carousel = $('#listingCarousel');
+                var isStarted = ("started" == carousel.data("status"));
+                if (!isStarted) {
+                    carousel.carousel({
+                    interval: 30000
+                });
+                carousel.data("status", "started");
+                }
+            });
+            $('.pull-right').click();
+            $("#listingCarouselControl").hide();
+            $("#listingCarouselClose").hide();
+            $(".single-listing-price").css({"font-size":"70px"});
+        })
+    };
+</script>
+<!-- End Front Office Slideshow -->
